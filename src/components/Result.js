@@ -1,12 +1,22 @@
 import React, { Component } from "react";
 import cloud from "../cloud.png"
-import nightrain from "../nightr.png"
+import snow from "../snow.png"
 import rain  from "../rain.png"
 import suncloud from "../sunc.png"
 import sun from "../sun.png"
 
+const icons = [
+  cloud,
+  rain,
+  suncloud,
+  sun,
+]
 
 export default class Result extends Component {
+  state = {
+    icons:undefined
+  }
+
   render() {
     return (
       // <div
@@ -67,7 +77,7 @@ export default class Result extends Component {
       <li ><i className="fa fa-send"></i>NEWS & EVENTS</li>
       <li ><i class="fa fa-picture-o"></i>GALLERY (30)</li>
     </ul>
-  <a href="https://github.com/xatishayx" target="blank">  <p className="latest-locations"><i class="fa fa-github" aria-hidden="true"></i><span><center>Fork Me</center></span></p> </a>
+  <a href="https://github.com/xAtishayx/Weather-App" target="blank">  <p className="latest-locations"><i class="fa fa-github" aria-hidden="true"></i><span><center>Fork Me</center></span></p> </a>
   </div>
   <div className="bottom">
     <ul>
@@ -115,7 +125,7 @@ export default class Result extends Component {
       <li>
         <div className="temp-middle">
           <p className="day">SUN</p>
-          <p className="weather"><img src={sun} heigh="50" width="50 "/></p>
+          <p className="weather"><Icon temp={this.props.data.temperature} des={this.props.data.description}/></p>
           <p className="temperature">69°</p>
         </div>
       </li>
@@ -125,5 +135,14 @@ export default class Result extends Component {
 
       
     );
+  }
+}
+class Icon extends Component {
+  render(){
+    return(
+      <div>
+        {this.props.temp > 10 && this.props.des.includes('clear') ? <img src={sun} heigh="50" width="50 "/> :<img src={rain} heigh="50" width="50 "/>}
+        </div>
+    )
   }
 }
