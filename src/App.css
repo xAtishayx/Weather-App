@@ -1,0 +1,371 @@
+
+nav {
+  /* background: linear-gradient(150deg,  #03505f70 70%, #08813b7c 94%); */
+}
+.form-container {
+  /* -webkit-transform-origin: 0; */
+  /* transform-origin: 0; */
+  display: flex;
+    height: 8vh;
+    justify-content: center;
+    margin-top: 49vh;
+    padding: 11px;
+    width: 50;
+    overflow: hidden;
+    transition: all 0.6s ease-in-out;
+    animation: form 2s ;
+}
+form{
+  display: flex;
+  justify-content: center;
+}
+/* .form-container form {
+  width: 350px;
+  padding: 20px;
+}
+
+form input,
+form button {
+  margin: 25px 0px;
+}
+form button {
+  margin-top: 0px;
+} */
+.center-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  z-index: 100;
+  
+  /* transform: skewY(6deg); */
+} 
+
+.result-container {
+  transition: all 0.6s ease;
+  transform: skewY(0deg);
+  height: 100vh;
+  position: relative;
+  top:0;
+  overflow: hidden;
+  box-shadow: 0px 0px 20px 0px #dbdbdb79;
+}
+.result-container span {
+  color: rgb(138, 195, 226);
+}
+.result-container span::before {
+}
+h4 {
+  transform: skewY(8deg);
+  padding: 10px;
+  color: rgb(245, 207, 138);
+}
+@media only screen and (max-width: 750px) {
+  .form-container {
+    height: fit-content;
+    margin-top: 20px;
+  }
+  .container {
+    box-shadow: -11px -8px 20px 6px #dbdbdba1;
+    transform: skewY(0deg);
+  }
+  .center-container {
+    transform: skewY(0deg);
+  }
+  .result-container {
+    transform: skewY(0deg);
+  }
+  h4 {
+    transform: skewY(0deg);
+    font-size: 18px;
+  }
+}
+@import 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900';
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+  overflow: hidden;
+  background: none;
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+}
+
+i {
+  overflow: visible;
+}
+
+ul {
+  list-style-type: none;
+}
+
+
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+}
+
+.wrapper {
+  transition: all 0.6s ease;
+  overflow: hidden;
+  transform: skewY(0deg);
+  animation: slide 2s;
+
+  width: 995px;
+  height: 655px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  border-radius: 10px;
+  -webkit-box-shadow: 1px 3px 10px rgba(0, 0, 0, 0.5);
+          box-shadow: 1px 3px 10px rgba(0, 0, 0, 0.5);
+}
+@keyframes slide {
+    0%     {left:0px; top:-1110px;}
+    100%   {left:0px; top:0px;}
+}
+.top {
+  width: 100%;
+  height: 465px;
+  position: relative;
+  background: url("https://images.unsplash.com/photo-1476619925034-16410ddef932?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1355&q=80");
+  background-position: center center;
+  background-size: cover;
+}
+
+.top .location {
+  padding: 40px;
+  font-size: 50px;
+  font-weight: 400;
+}
+
+.top .location::-webkit-input-placeholder {
+  /* WebKit, Blink, Edge */
+  color: #9C96BA;
+}
+
+.top .location:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #9C96BA;
+  opacity: 1;
+}
+
+.top .location::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #9C96BA;
+  opacity: 1;
+}
+
+.top .location:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #9C96BA;
+}
+
+.top .detail {
+  top:-160px;
+  float: right;
+  padding: 40px;
+  text-align: right;
+  position: relative;
+}
+
+.top .detail span {
+  display: block;
+  font-size: 1.1em;
+}
+
+.top .detail i {
+  font-size: 60px;
+}
+.top .detail .input {
+  display: flex;
+  flex-direction: column;
+  position: ;
+  
+}
+
+.top ul.options {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.top ul.options li {
+  width: 170px;
+  position: relative;
+  padding-bottom: 25px;
+  text-align: center;
+  font-size: 0.9em;
+  display: inline-block;
+  float: left;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+}
+
+.top ul.options li, .top ul.options li i {
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
+}
+
+.top ul.options li i {
+  overflow: visible;
+  margin-right: 10px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.top ul.options li.selected, .top ul.options li:hover {
+  color: white;
+}
+
+.top ul.options li.selected i, .top ul.options li:hover i {
+  color: white;
+}
+
+.top ul.options li:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 7px;
+}
+
+.top ul.options li:nth-child(1):after {
+  background: #F5C650;
+}
+
+.top ul.options li:nth-child(2):after {
+  background: #99A2E7;
+}
+
+.top ul.options li:nth-child(3):after {
+  background: #66D0E6;
+}
+
+.top .latest-locations {
+  width: 250px;
+  height: 50px;
+  background-color: #4b5c5e;
+  line-height: 50px;
+  padding-left: 20px;
+  position: absolute;
+  right: -200px;
+  bottom: 80px;
+  margin: auto;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  cursor: pointer;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.top .latest-locations:hover {
+  right: 0;
+}
+
+.top .latest-locations i {
+  float: left;
+  line-height: 50px;
+  margin-right: 15px;
+  overflow: visible;
+}
+
+.bottom {
+  height: 190px;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.bottom ul {
+  width: 100%;
+  height: 100%;
+}
+
+.bottom ul li {
+  height: 100%;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  float: left;
+  position: relative;
+  text-align: center;
+}
+
+.bottom ul li .temp-middle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.bottom ul li .day {
+  background-color: rgba(0, 0, 0, 0.15);
+  padding: 5px 15px;
+  border-radius: 25px;
+}
+
+.bottom ul li:not(:first-child) {
+  width: 10.5%;
+  font-size: 15px;
+}
+
+.bottom ul li:not(:first-child) p {
+  width: 100%;
+}
+
+.bottom ul li:not(:first-child) p:not(:first-child) {
+  margin-top: 15px;
+}
+
+.bottom ul li:not(:first-child) p.weather {
+  font-size: 30px;
+}
+
+.bottom ul li:not(:first-child) p.temperature {
+  font-size: 20px;
+}
+
+.bottom ul li:first-child {
+  width: 37%;
+  height: 100%;
+}
+
+.bottom ul li:first-child .temp-middle {
+  width: 100%;
+}
+
+.bottom ul li:first-child .temperature-stats {
+  font-size: 105px;
+}
+
+.bottom ul li:first-child .temperature-stats i {
+  font-size: 90px;
+  vertical-align: top;
+}
+
+.bottom ul li:first-child .temp-extra span {
+  display: inline-block;
+  padding: 5px 15px;
+  font-size: 1em;
+  border-radius: 25px;
+}
+
+.bottom ul li:first-child .temp-extra span.day {
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+.wi-day-sunny {
+  color: #FDCF57;
+}
+
