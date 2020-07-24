@@ -1,18 +1,38 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import bg from "./23284.jpg";
 
 import Form from "./components/Form";
 import Result from "./components/Result";
 
+
+
 export default class App extends Component {
   state = {
     temperature: undefined,
+    
+    tempd2: undefined,
+    tempd3: undefined,
+    tempd4: undefined,
+    tempd5: undefined,
+    tempd6: undefined,
+    tempd7: undefined,
+
     city: undefined,
     country: undefined,
     humidity: undefined,
+    wind_speed : undefined,
+    wind_degree: undefined,
+    time: undefined,
+
     description: undefined,
+    desc2: undefined,
+    desc3: undefined,
+    desc4: undefined,
+    desc5: undefined,
+    desc6: undefined,
+    desc7: undefined,
+
     error: undefined,
     req: false,
     backgroundStyle: {
@@ -29,23 +49,59 @@ export default class App extends Component {
     if (city && country) {
       const dataJSON = await fetch(
         `https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=e646812b93d241c3960d12ccc92f80eb`
-        // `https://api.openweathermap.org/data/2.5/onecall?lat=33.441792&lon=-94.037689&appid=e646812b93d241c3960d12ccc92f80eb`
       );
+
       const data = await dataJSON.json();
       console.log(data);
-      data.cod === 200
-        ? this.setState({
-            temperature: Math.floor(data.main.temp - 273.15),
-            city: data.name,
-            country: data.sys.country,
-            humidity: data.main.humidity,
-            description: data.weather[0].description,
-            req: true
-          })
-        : alert("City Not Found");
+
+
+    if (data.cod ===200)
+   {   
+    const lat = data.coord.lat
+    const long = data.coord.lon 
+    const fulldataJSON = await fetch(
+        `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&appid=e646812b93d241c3960d12ccc92f80eb`
+      )
+      const fulldata = await fulldataJSON.json();
+      console.log(fulldata);
+
+      this.setState({
+        temperature: Math.floor(data.main.temp - 273.15),
+        tempd2: Math.floor(fulldata.daily[1].temp.day - 273.15),
+        tempd3: Math.floor(fulldata.daily[2].temp.day - 273.15),
+        tempd4: Math.floor(fulldata.daily[3].temp.day - 273.15),
+        tempd5: Math.floor(fulldata.daily[4].temp.day - 273.15),
+        tempd6: Math.floor(fulldata.daily[5].temp.day - 273.15),
+        tempd7: Math.floor(fulldata.daily[6].temp.day - 273.15),
+        city: data.name,
+        country: data.sys.country,
+        humidity: data.main.humidity,
+        wind_speed : fulldata.current.wind_speed,
+        wind_degree: fulldata.current.wind_deg,
+        desc2: fulldata.daily[1].weather[0].description,
+        desc3: fulldata.daily[2].weather[0].description,
+        desc4: fulldata.daily[3].weather[0].description,
+        desc5: fulldata.daily[4].weather[0].description,
+        desc6: fulldata.daily[5].weather[0].description,
+        desc7: fulldata.daily[6].weather[0].description,
+
+        time : data.dt,
+        description: data.weather[0].description,
+        
+        req: true
+      })
+   }
+        else
+         alert('City not found')
+
+
     }
+    console.log(this.state)
   };
+
+
   render() {
+    
     return (
       <div style={{ backgroundImage: `url(${this.state.backgroundStyle.backgroundImage})`, height:"100vh", width:"100vw",zIndex:"-100", backgroundPosition: "center", backgroundSize:"cover", backgroundRepeat:'norepeat'}} id="main">
 

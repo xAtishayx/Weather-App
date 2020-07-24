@@ -1,132 +1,99 @@
 import React, { Component } from "react";
-import cloud from "../cloud.png"
-import snow from "../snow.png"
-import rain  from "../rain.png"
-import suncloud from "../sunc.png"
-import sun from "../sun.png"
+import cloud from "../cloud.png";
+import snow from "../snow.png";
+import rain from "../rain.png";
+import nightrain from "../nightr.png";
+import moon from "../stars.png";
+import suncloud from "../sunc.png";
+import sun from "../sun.png";
+import Moment from "react-moment";
 
-const icons = [
-  cloud,
-  rain,
-  suncloud,
-  sun,
-]
+
 
 export default class Result extends Component {
   state = {
-    icons:undefined
+    icons:undefined,
+    date: undefined
   }
 
+
   render() {
+    
+    const date = new Date();
+    console.log(date);
+    const fdate = this.props.data.time;
     return (
-      // <div
-      //   className="center-container result-container"
-      //   style={this.props.data.req ? { width: "100%" } : { width: 0 }}
-      // >
-      //   {/* <h4>
-      //     City: <span>{this.props.data.city}</span>
-      //   </h4>
-      //   <h4>
-      //     Temperature: <span>{this.props.data.temperature} C</span>
-      //   </h4>
-      //   <h4>
-      //     Humidity: <span>{this.props.data.humidity}</span>
-      //   </h4>
-      //   <h4>
-      //     Description:{" "}
-      //     <span style={{ textTransform: "capitalize" }}>
-      //       {this.props.data.description}
-      //     </span>
-      //   </h4> */}
+
         <div id="app" className="wrapper" style={this.props.data.req ? {  } : { display: "none" }}>
   <div className="top">
   <h1 className="location" style={{color:"#8AC3E2"}}>{this.props.data.city}, {this.props.data.country}</h1>
-
-
-    {/* <form onSubmit={this.props.getWeather}>
-    <input type="text" className="location" placeholder="Miami, FL"/>
-    <input type="text" className="location" placeholder="Miami, FL"/>
-          <input
-            type="city"
-            className="location"
-            id="city-input"
-          placeholder={this.props.data.city}
-          />
-          <input
-            type="country"
-            className="location"
-            id="exampleInputCountry1"
-            placeholder={this.props.data.country}
-          />
-          <button type="submit" className="btn btn-primary">
-            Get Weather
-          </button>
-        </form> */}
   
 
 
     <div className="detail">
+
       <span><i className="fa fa-map-marker"></i></span>
       <span>{this.props.data.city}, {this.props.data.country}</span>
-      <span>7:30 pm</span>
+
+      <span> <Moment unix format='h:mm a'>{fdate}</Moment> </span>
       
 
     </div>
     <ul className="options">
-      <li ><i class="fa fa-cloud" aria-hidden="true"></i> WEATHER</li>
+      <li ><i className="fa fa-cloud" aria-hidden="true"></i> WEATHER</li>
       <li ><i className="fa fa-send"></i>NEWS & EVENTS</li>
-      <li ><i class="fa fa-picture-o"></i>GALLERY (30)</li>
+      <li ><i className="fa fa-picture-o"></i>GALLERY (30)</li>
     </ul>
-  <a href="https://github.com/xAtishayx/Weather-App" target="blank">  <p className="latest-locations"><i class="fa fa-github" aria-hidden="true"></i><span><center>Fork Me</center></span></p> </a>
+  <a href="https://github.com/xAtishayx/Weather-App" target="blank">  <div className="latest-locations"><i className="fa fa-github" aria-hidden="true"></i><span><center>Fork Me</center></span></div> </a>
   </div>
   <div className="bottom">
     <ul>
       <li>
         <div className="temp-middle">
-        <p className="temperature-stats"><span className="temperature">{this.props.data.temperature}°</span><img src={rain} heigh="120" width="120 "/></p>
-          <p className="temp-extra"><span class="day">MONDAY 23th</span> <span>4mph / 67°</span></p>
+        <div className="temperature-stats"><span className="temperature" style={{color:"#66D0E6"}}>{this.props.data.temperature}°</span><Icon temp={this.props.data.temperature} des={this.props.data.description} req={this.props.data.req} height="100" width="100"/></div>
+      <p className="temp-extra"><span className="day"><Moment unix format='Do dddd'>{fdate}</Moment> </span> <span>{this.props.data.wind_speed}mph / {this.props.data.wind_degree}°</span></p>
         </div>
       </li>
       <li>
         <div className="temp-middle">
-          <p className="day">TUE</p>
-          <p className="weather"><img src={cloud} heigh="50" width="50 "/></p>
-          <p className="temperature">60°</p>
+          <p className="day"><Moment unix format='dddd' add={{ days: 1}}>{fdate}</Moment> </p>
+          <div className="weather"><Icon temp={this.props.data.temperature} des={this.props.data.desc2} req={this.props.data.req} height="50" width="50"/></div>
+      <p className="temperature">{this.props.data.tempd2}°</p>
         </div>
       </li>
       <li>
         <div className="temp-middle">
-          <p className="day">WED</p>
-          <p className="weather"><img src={sun} heigh="50" width="50 "/></p>
-          <p className="temperature">72°</p>
+          <p className="day"><Moment unix format='dddd' add={{ days: 2}}>{fdate}</Moment></p>
+          <div className="weather"><Icon temp={this.props.data.temperature} des={this.props.data.desc3} req={this.props.data.req} height="50" width="50"/></div>
+          <p className="temperature">{this.props.data.tempd3}°</p>
         </div>
       </li>
       <li>
         <div className="temp-middle">
-          <p className="day">THU</p>
-          <p className="weather"><img src={suncloud} heigh="50" width="50 "/></p>
-          <p className="temperature">63°</p>
+          <p className="day"><Moment unix format='dddd' add={{ days: 3}}>{fdate}</Moment></p>
+          <div className="weather"><Icon temp={this.props.data.temperature} des={this.props.data.desc4} req={this.props.data.req} height="50" width="50"/></div>
+          <p className="temperature">{this.props.data.tempd4}°</p>
         </div>
       </li>
       <li>
         <div className="temp-middle">
-          <p className="day">FRI</p>
-          <p className="weather"><img src={rain} heigh="50" width="50 "/></p>
-          <p className="temperature">65°</p>
+          <p className="day"><Moment unix format='dddd' add={{ days: 4}}>{fdate}</Moment></p>
+          <div className="weather"><Icon temp={this.props.data.temperature} des={this.props.data.desc5} req={this.props.data.req} height="50" width="50"/></div>
+          <p className="temperature">{this.props.data.tempd5}°</p>
         </div>
       </li>
       <li>
         <div className="temp-middle">
-          <p className="day">SAT</p>
-          <p className="weather"><img src={rain} heigh="50" width="50 "/></p>
-          <p className="temperature">18°</p>
+          <p className="day"><Moment unix format='dddd' add={{ days: 5}}>{fdate}</Moment></p>
+          <div className="weather"><Icon temp={this.props.data.temperature} des={this.props.data.desc6} req={this.props.data.req} height="50" width="50"/></div>
+          <p className="temperature">{this.props.data.tempd6}°</p>
         </div>
       </li>
       <li>
         <div className="temp-middle">
-          <p className="day">SUN</p>
-          <p className="weather"><Icon temp={this.props.data.temperature} des={this.props.data.description}/></p>
-          <p className="temperature">69°</p>
+          <p className="day"><Moment unix format='dddd' add={{ days: 6}}>{fdate}</Moment></p>
+          <div className="weather"><Icon temp={this.props.data.temperature} des={this.props.data.desc7} req={this.props.data.req} height="50" width="50"/> </div>
+          <p className="temperature">{this.props.data.tempd6}°</p>
         </div>
       </li>
     </ul>
@@ -138,10 +105,47 @@ export default class Result extends Component {
   }
 }
 class Icon extends Component {
+
   render(){
+    console.log(this.props.des)
     return(
       <div>
-        {this.props.temp > 10 && this.props.des.includes('clear') ? <img src={sun} heigh="50" width="50 "/> :<img src={rain} heigh="50" width="50 "/>}
+         {(() => {
+           if(this.props.req){
+        if (this.props.temp < 0) {
+          return (
+            <img src={snow} height={this.props.height} width={this.props.width} alt = "icon" />
+          )
+        }
+        else if (this.props.des.includes('haze') || this.props.des.includes('mist')) {
+          return (
+            <img src={cloud} height={this.props.height} width={this.props.width} alt = "icon" />
+          )
+        } 
+        else if (this.props.des.includes('rain')) {
+          return (
+            <img src={rain} height={this.props.height} width={this.props.width} alt = "icon" />
+          )
+        }
+        else if (this.props.des.includes('cloud')) {
+          return (
+            <img src={suncloud} height={this.props.height} width={this.props.width} alt = "icon" />
+          )
+        }
+         else if(this.props.des.includes('clear')) {
+          return (
+            <img src={sun } height={this.props.height} width={this.props.width} alt = "icon"/>
+          )
+        }
+        else {
+          return (
+            <img src={sun } height={this.props.height} width={this.props.width} alt = "icon"/>
+          )
+        }
+      }
+      })()}
+        
+        {/* {this.props.temp > 10  ? <img src={sun} heigh="50" width="50 " alt = "icon" /> :<img src={rain} heigh="50" width="50 "/>} */}
         </div>
     )
   }
