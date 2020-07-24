@@ -32,15 +32,10 @@ export default class App extends Component {
     desc5: undefined,
     desc6: undefined,
     desc7: undefined,
-
+    
     error: undefined,
     req: false,
-    backgroundStyle: {
-      backgroundImage: 'https://images.unsplash.com/photo-1476619925034-16410ddef932?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1355&q=80',
-      backgroundPosition: 'center',
-      backgroundSize: 'cover',
-      backgroundRepeat: 'no-repeat'
-    }
+    backgroundImage: 'https://images.unsplash.com/photo-1522163723043-478ef79a5bb4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2013&q=80'
   };
   getWeather = async e => {
     e.preventDefault();
@@ -64,7 +59,6 @@ export default class App extends Component {
       )
       const fulldata = await fulldataJSON.json();
       console.log(fulldata);
-
       this.setState({
         temperature: Math.floor(data.main.temp - 273.15),
         tempd2: Math.floor(fulldata.daily[1].temp.day - 273.15),
@@ -90,11 +84,33 @@ export default class App extends Component {
         
         req: true
       })
+
+
    }
         else
          alert('City not found')
 
 
+    }
+    if(this.state.req){
+      if (this.state.temperature < 0) {
+        this.setState({backgroundImage: 'https://images.unsplash.com/photo-1457269449834-928af64c684d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80'})
+      }
+      else if (this.state.description.includes('haze') || this.state.description.includes('mist')) {
+        this.setState({backgroundImage: 'https://images.unsplash.com/photo-1522163723043-478ef79a5bb4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2013&q=80'})
+      } 
+      else if (this.state.description.includes('rain')) {
+        this.setState({backgroundImage: 'https://images.unsplash.com/photo-1477847616630-cf9cf8815fda?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80'})
+      }
+      else if (this.state.description.includes('cloud')) {
+        this.setState({backgroundImage: 'https://images.unsplash.com/photo-1542176178-76c03e65d40d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1476&q=80'})
+      }
+       else if(this.state.description.includes('clear')) {
+        this.setState({backgroundImage: 'https://images.unsplash.com/photo-1585209086810-eceb4926e2c6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80'})
+      }
+      else {
+        this.setState({backgroundImage: 'https://images.unsplash.com/photo-1476619925034-16410ddef932?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1355&q=80'})
+      }
     }
     console.log(this.state)
   };
@@ -103,8 +119,9 @@ export default class App extends Component {
   render() {
     
     return (
-      <div style={{ backgroundImage: `url(${this.state.backgroundStyle.backgroundImage})`, height:"100vh", width:"100vw",zIndex:"-100", backgroundPosition: "center", backgroundSize:"cover", backgroundRepeat:'norepeat'}} id="main">
-
+      <div style={{ backgroundImage: `url(${this.state.backgroundImage})`, height:"100vh", width:"100vw",zIndex:"-100", backgroundPosition: "center", backgroundSize:"cover", backgroundRepeat:'norepeat' 
+    }} id="main">
+      
 <Form data={this.state} getWeather={this.getWeather} />
             <Result data={this.state} />
         </div>

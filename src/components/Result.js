@@ -25,7 +25,7 @@ export default class Result extends Component {
     return (
 
         <div id="app" className="wrapper" style={this.props.data.req ? {  } : { display: "none" }}>
-  <div className="top">
+  <div className="top" style={{ backgroundImage: `url(${this.props.data.backgroundImage})`}}>
   <h1 className="location" style={{color:"#8AC3E2"}}>{this.props.data.city}, {this.props.data.country}</h1>
   
 
