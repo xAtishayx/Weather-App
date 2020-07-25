@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import cloud from "../cloud.png";
 import snow from "../snow.png";
 import rain from "../rain.png";
-import nightrain from "../nightr.png";
-import moon from "../stars.png";
 import suncloud from "../sunc.png";
 import sun from "../sun.png";
 import Moment from "react-moment";
@@ -169,7 +167,6 @@ class Icon extends Component {
       }
       })()}
         
-        {/* {this.props.temp > 10  ? <img src={sun} heigh="50" width="50 " alt = "icon" /> :<img src={rain} heigh="50" width="50 "/>} */}
         </div>
     )
   }
