@@ -36,15 +36,13 @@ export default class Result extends Component {
       <span>{this.props.data.city}, {this.props.data.country}</span>
 
       <span> <Moment unix format='h:mm a'>{fdate}</Moment> </span>
-      <br /><button className="btn btn-outline-info" id="new-weather" height="100" width="100"  onClick={()=> {window.location.reload()}} >
-            NEW WEATHER
-          </button>
+      <br />
 
     </div>
     <ul className="options">
-      <li ><i className="fa fa-cloud" aria-hidden="true"></i> WEATHER</li>
-      <li ><i className="fa fa-send"></i>NEWS & EVENTS</li>
-      <li ><i className="fa fa-picture-o"></i>GALLERY (30)</li>
+      <li onClick={()=> {window.location.reload()}}><i className="fa fa-cloud" aria-hidden="true" ></i>NEW CITY</li>
+      <li id="social"><i className="fa fa-linkedin" ></i><a href="https://www.linkedin.com/in/atishay-srivastava-7a1140174" target="blank"> LINKEDIN </a> </li>
+      <li id="social"><i className="fa fa-github" ></i> <a href="https://github.com/xAtishayx/" target="blank"> GITHUB </a></li>
     </ul>
   <a href="https://github.com/xAtishayx/Weather-App" target="blank">  <div className="latest-locations"><i className="fa fa-github" aria-hidden="true"></i><span><center>Fork Me</center></span></div> </a>
   </div>

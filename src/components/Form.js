@@ -12,13 +12,13 @@ export default class Form extends Component {
             type="text"
             className="location"
             id="city-input"
-            placeholder="ENTER  CITY"
+            placeholder="CITY"
           />
           <input
             type="text"
             className="location"
             id="exampleInputCountry1"
-            placeholder="ENTER COUNTRY"
+            placeholder="COUNTRY"
           />
           <button type="submit" className="btn btn-outline-info" height="100" width="100">
             GET WEATHER
