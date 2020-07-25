@@ -14,12 +14,14 @@ export default class Form extends Component {
             className="location"
             id="city-input"
             placeholder="CITY"
+            autocomplete="off"
           />
           <input
             type="text"
             className="location"
             id="exampleInputCountry1"
             placeholder="COUNTRY"
+            autocomplete="off"
           />
           <button type="submit" className="btn btn-outline-info" height="100" width="100">
             GET WEATHER
