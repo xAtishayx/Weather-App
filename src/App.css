@@ -7,6 +7,7 @@ nav {
   display: flex;
   height: 100vh;
   justify-content: center;
+  align-items: center;
   /* margin-top: 49vh; */
   /* padding: 450px; */
   /* width: 100vw; */
@@ -18,8 +19,14 @@ nav {
 form {
   display: flex;
   /* padding: 450px; */
-  /* justify-content: center; */
+  justify-content: center;
+  height: 70px;
+  top: 49%;
 }
+
+
+
+
 /* .form-container form {
   width: 350px;
   padding: 20px;
@@ -62,26 +69,7 @@ h4 {
   padding: 10px;
   color: rgb(245, 207, 138);
 }
-@media only screen and (max-width: 750px) {
-  .form-container {
-    height: fit-content;
-    margin-top: 20px;
-  }
-  .container {
-    box-shadow: -11px -8px 20px 6px #dbdbdba1;
-    transform: skewY(0deg);
-  }
-  .center-container {
-    transform: skewY(0deg);
-  }
-  .result-container {
-    transform: skewY(0deg);
-  }
-  h4 {
-    transform: skewY(0deg);
-    font-size: 18px;
-  }
-}
+
 @import "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900";
 
 * {
@@ -363,4 +351,38 @@ body {
 
 .wi-day-sunny {
   color: #fdcf57;
+}
+#new-weather{
+  display: none;
+}
+
+@media only screen and (max-width: 750px) {
+  .form-container, form {
+    display:flex;
+    flex-direction: column;
+    margin-top: 20px;
+    height: 100vh;
+    justify-content: space-evenly;
+  }
+  .wrapper{
+    width:100vw;
+  }
+  .options, #icons {
+    position: absolute;
+    display: none;
+  }
+  #mainicon{
+    width: 100vw;
+  }
+  .top .detail {
+    top: 98px;
+    /* left: 0px; */
+    float: left;
+    padding: 40px;
+    text-align: left;
+    position: relative;
+}
+#new-weather{
+  display: inline;
+}
 }

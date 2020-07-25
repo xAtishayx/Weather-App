@@ -36,7 +36,9 @@ export default class Result extends Component {
       <span>{this.props.data.city}, {this.props.data.country}</span>
 
       <span> <Moment unix format='h:mm a'>{fdate}</Moment> </span>
-      
+      <br /><button className="btn btn-outline-info" id="new-weather" height="100" width="100"  onClick={()=> {window.location.reload()}} >
+            NEW WEATHER
+          </button>
 
     </div>
     <ul className="options">
@@ -48,49 +50,49 @@ export default class Result extends Component {
   </div>
   <div className="bottom">
     <ul>
-      <li>
+      <li id="mainicon">
         <div className="temp-middle">
         <div className="temperature-stats"><span className="temperature" style={{color:"#66D0E6"}}>{this.props.data.temperature}°</span><Icon temp={this.props.data.temperature} des={this.props.data.description} req={this.props.data.req} height="100" width="100"/></div>
       <p className="temp-extra"><span className="day"><Moment unix format='Do dddd'>{fdate}</Moment> </span> <span>{this.props.data.wind_speed}mph / {this.props.data.wind_degree}°</span></p>
         </div>
       </li>
-      <li>
-        <div className="temp-middle">
+      <li id="icons">
+        <div className="temp-middle" >
           <p className="day"><Moment unix format='dddd' add={{ days: 1}}>{fdate}</Moment> </p>
           <div className="weather"><Icon temp={this.props.data.temperature} des={this.props.data.desc2} req={this.props.data.req} height="50" width="50"/></div>
       <p className="temperature">{this.props.data.tempd2}°</p>
         </div>
       </li>
-      <li>
-        <div className="temp-middle">
+      <li id="icons">
+        <div className="temp-middle" >
           <p className="day"><Moment unix format='dddd' add={{ days: 2}}>{fdate}</Moment></p>
           <div className="weather"><Icon temp={this.props.data.temperature} des={this.props.data.desc3} req={this.props.data.req} height="50" width="50"/></div>
           <p className="temperature">{this.props.data.tempd3}°</p>
         </div>
       </li>
-      <li>
-        <div className="temp-middle">
+      <li id="icons">
+        <div className="temp-middle" >
           <p className="day"><Moment unix format='dddd' add={{ days: 3}}>{fdate}</Moment></p>
           <div className="weather"><Icon temp={this.props.data.temperature} des={this.props.data.desc4} req={this.props.data.req} height="50" width="50"/></div>
           <p className="temperature">{this.props.data.tempd4}°</p>
         </div>
       </li>
-      <li>
-        <div className="temp-middle">
+      <li id="icons">
+        <div className="temp-middle" >
           <p className="day"><Moment unix format='dddd' add={{ days: 4}}>{fdate}</Moment></p>
           <div className="weather"><Icon temp={this.props.data.temperature} des={this.props.data.desc5} req={this.props.data.req} height="50" width="50"/></div>
           <p className="temperature">{this.props.data.tempd5}°</p>
         </div>
       </li>
-      <li>
-        <div className="temp-middle">
+      <li id="icons">
+        <div className="temp-middle" >
           <p className="day"><Moment unix format='dddd' add={{ days: 5}}>{fdate}</Moment></p>
           <div className="weather"><Icon temp={this.props.data.temperature} des={this.props.data.desc6} req={this.props.data.req} height="50" width="50"/></div>
           <p className="temperature">{this.props.data.tempd6}°</p>
         </div>
       </li>
-      <li>
-        <div className="temp-middle">
+      <li id="icons">
+        <div className="temp-middle" >
           <p className="day"><Moment unix format='dddd' add={{ days: 6}}>{fdate}</Moment></p>
           <div className="weather"><Icon temp={this.props.data.temperature} des={this.props.data.desc7} req={this.props.data.req} height="50" width="50"/> </div>
           <p className="temperature">{this.props.data.tempd6}°</p>

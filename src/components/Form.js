@@ -3,7 +3,7 @@ import React, { Component } from "react";
 export default class Form extends Component {
   render() {
     return (
-      <div className="bg" style={{backgroundImage:"linear-gradient( 150deg, rgba(22, 22, 24, 0.801) 25%, #221318c9 70%, #2c1010d8 84% )" }}>
+      <div className="bg" style={this.props.data.req ? { }: {backgroundImage:"linear-gradient( 150deg, rgba(22, 22, 24, 0.801) 25%, #221318c9 70%, #2c1010d8 84% )"} }>
         {/* //backgroundImage:"linear-gradient( 150deg, rgba(22, 22, 24, 0.801) 25%, #221318c9 70%, #2c1010d8 84% )" */}
       <div className="form-container" style={this.props.data.req ? { marginTop:"-42vh" } : { }} >
      
