@@ -93,7 +93,7 @@ export default class App extends Component {
 
     }
     if(this.state.req){
-      if (this.state.temperature < 0) {
+      if (this.state.temperature < 0 || this.state.description.includes('snow')) {
         this.setState({backgroundImage: 'https://images.unsplash.com/photo-1457269449834-928af64c684d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80'})
       }
       else if (this.state.description.includes('haze') || this.state.description.includes('mist')) {
