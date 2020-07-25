@@ -35,7 +35,7 @@ export default class App extends Component {
     
     error: undefined,
     req: false,
-    backgroundImage: 'https://images.unsplash.com/photo-1522163723043-478ef79a5bb4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2013&q=80'
+    backgroundImage: 'https://images.unsplash.com/photo-1594080553381-81c5b7c5d676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80'
   };
   getWeather = async e => {
     e.preventDefault();
