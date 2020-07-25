@@ -35,7 +35,7 @@ export default class App extends Component {
     
     error: undefined,
     req: false,
-    backgroundImage: 'https://images.unsplash.com/photo-1594080553381-81c5b7c5d676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80'
+    backgroundImage: 'https://images.unsplash.com/photo-1497178398528-7ff4a4bad7ab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80'
   };
   getWeather = async e => {
     e.preventDefault();
@@ -47,7 +47,7 @@ export default class App extends Component {
       );
 
       const data = await dataJSON.json();
-      console.log(data);
+      // console.log(data);
 
 
     if (data.cod ===200)
@@ -58,7 +58,7 @@ export default class App extends Component {
         `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&appid=e646812b93d241c3960d12ccc92f80eb`
       )
       const fulldata = await fulldataJSON.json();
-      console.log(fulldata);
+      // console.log(fulldata);
       this.setState({
         temperature: Math.floor(data.main.temp - 273.15),
         tempd2: Math.floor(fulldata.daily[1].temp.day - 273.15),
@@ -112,7 +112,7 @@ export default class App extends Component {
         this.setState({backgroundImage: 'https://images.unsplash.com/photo-1476619925034-16410ddef932?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1355&q=80'})
       }
     }
-    console.log(this.state)
+    // console.log(this.state)
   };
 
 
